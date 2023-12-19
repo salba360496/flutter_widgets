@@ -1,0 +1,29 @@
+name: flutter_widgets
+description: "A new Flutter project."
+version: 0.0.1
+publish_to: none
+homepage: https://github.com/salba360496
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto_Thin.ttf
+        - asset: assets/fonts/Roboto_Regular.ttf
+        - asset: assets/fonts/Roboto_Medium.ttf
+
+  assets:
+    - assets/fonts/
