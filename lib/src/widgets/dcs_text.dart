@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/src/general_function.dart';
+
 class DcsText extends StatelessWidget {
   /// If assertion occur it may be cause by size or weight.
   /// Please use other DcsText i.e DcsText.s15 or DcsText.b15.
@@ -15,18 +16,21 @@ class DcsText extends StatelessWidget {
       this.toverflow,
       this.lines,
       this.underline = false})
-      : assert(!(size != null && !(size < 8 || size > 19)), 'Please use other method'),
-        assert(!(weight != null), 'Please use other method');
+      : assert(!(size != null && !(size < 8 || size > 19)), 'Use instead DcsText.s15 or DcsText.b15.'),
+        assert(!(weight != null), 'Use instead DcsText.sBold or DcsText.bold.');
+
+  const DcsText.noAssertion(this.title,
+      {super.key, this.size, this.clr, this.weight, this.center, this.rightAlign, this.leftAlign, this.toverflow, this.lines, this.underline = false});
 
   const DcsText.sBold(this.title,
       {super.key, this.size, this.clr, this.center, this.rightAlign, this.leftAlign, this.toverflow, this.lines, this.underline = false})
       : weight = 'Semi Bold',
-        assert(!(size != null && !(size < 8 || size > 19)), 'Please use other method');
+        assert(!(size != null && !(size < 8 || size > 19)), 'Use instead DcsText.s15 or DcsText.b15.');
 
   const DcsText.bold(this.title,
       {super.key, this.size, this.clr, this.center, this.rightAlign, this.leftAlign, this.toverflow, this.lines, this.underline = false})
       : weight = 'Bold',
-        assert(!(size != null && !(size < 8 || size > 19)), 'Please use other method');
+        assert(!(size != null && !(size < 8 || size > 19)), 'Use instead DcsText.s15 or DcsText.b15.');
 
   const DcsText.n8(this.title, {super.key, this.clr, this.center, this.rightAlign, this.leftAlign, this.toverflow, this.lines, this.underline = false})
       : size = 8,
@@ -191,18 +195,16 @@ class DcsText extends StatelessWidget {
                 : leftAlign == true
                     ? TextAlign.left
                     : null,
-        style:
-            // textStyle ??
-            TextStyle(
-                decorationColor: clr,
-                decoration: underline == true ? TextDecoration.underline : TextDecoration.none,
-                fontSize: screenWidth > 480 ? (((screenWidth/ 3.8) / 100) * (size ?? 13) / 1.5) : ((screenWidth / 3.8) / 100) * (size ?? 13),
-                color: clr ?? Colors.black,
-                fontFamily: 'Roboto',
-                fontWeight: weight == 'Bold'
-                    ? FontWeight.w700
-                    : weight == 'Semi Bold'
-                        ? FontWeight.w500
-                        : FontWeight.normal));
+        style: TextStyle(
+            decorationColor: clr,
+            decoration: underline == true ? TextDecoration.underline : TextDecoration.none,
+            fontSize: screenWidth > 480 ? (dcsTextSize(context) * (size ?? 13) / 1.5) : dcsTextSize(context) * (size ?? 13),
+            color: clr ?? Colors.black,
+            fontFamily: 'Roboto',
+            fontWeight: weight == 'Bold'
+                ? FontWeight.w700
+                : weight == 'Semi Bold'
+                    ? FontWeight.w500
+                    : FontWeight.normal));
   }
 }

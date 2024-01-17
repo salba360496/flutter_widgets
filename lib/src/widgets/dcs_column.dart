@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class DcsColumn extends StatelessWidget {
@@ -26,9 +25,7 @@ class DcsColumn extends StatelessWidget {
     for (int i = 0; i < children.length; i++) {
       separatedList.add(children[i]);
       if (i != children.length - 1) {
-        separatedList.add(SizedBox(
-          height: height/100*(space ?? 0.5),
-        ));
+        separatedList.add(SizedBox(height: (height / 100) * (space ?? 0.5)));
       }
     }
     return separatedList;
